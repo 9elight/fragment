@@ -249,6 +249,7 @@
             android:textColor="@color/calcColor3"
             android:text="History"
             android:textSize="30sp"
+            
             app:layout_constraintLeft_toRightOf="@+id/delete"
             app:layout_constraintTop_toTopOf="parent"
             android:onClick="openHistoryList"/>
