@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class History extends AppCompatActivity {
     TextView textView;
+    Values values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +18,17 @@ public class History extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         textView = findViewById(R.id.text_history);
-        ArrayList<Values> values;
+
         Intent intent = getIntent();
-        values = (ArrayList<Values>) intent.getSerializableExtra("key");
+
+        values = (Values) intent.getSerializableExtra("key");
+
 
        /* String s1 = String.valueOf(values.get(0).val1);
         String s2 = String.valueOf(values.get(0).val2);
         String s3 = String.valueOf(values.get(0).operator);
         String s4 = String.valueOf(values.get(0).result);*/
-        textView.setText((int) values.get(0).val1 + " " + values.get(0).operator + " " +  values.get(0).val2 + " = " + values.get(0).result );
+
+        textView.setText((int) values.val1 + " " + values.operator + " " +  values.val2 + " = " + values.result );
     }
 }

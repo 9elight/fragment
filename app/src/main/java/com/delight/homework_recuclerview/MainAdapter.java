@@ -57,9 +57,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
 
     @Override
     public void onClick(int position) {
-
+        Values values = data.get(position);
         Intent intent = new Intent(activity,History.class);
-        intent.putExtra("key",data);
+        intent.putExtra("key",values);
         activity.startActivity(intent);
     }
 }
