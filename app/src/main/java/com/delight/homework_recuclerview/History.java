@@ -10,14 +10,14 @@ import java.util.ArrayList;
 
 public class History extends AppCompatActivity {
     TextView textView;
-    ArrayList<Values> values;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
         textView = findViewById(R.id.text_history);
-
+        ArrayList<Values> values;
         Intent intent = getIntent();
         values = (ArrayList<Values>) intent.getSerializableExtra("key");
 

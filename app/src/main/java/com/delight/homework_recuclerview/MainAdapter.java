@@ -1,16 +1,13 @@
 package com.delight.homework_recuclerview;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.PipedOutputStream;
 import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements onViewHolderListener{
@@ -22,10 +19,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
 
 
 
-    public MainAdapter(ArrayList<Values> result){
+    public MainAdapter(ArrayList<Values> data){
 
-        data = result;
-        notifyDataSetChanged();
+        this.data = data;
+
+
 
 
     }
@@ -46,8 +44,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
 
-        Double d = data.get(position).result;
-        holder.onBind(d,position);
+
+        holder.onBind(data.get(position).result,(position));
 
 
     }

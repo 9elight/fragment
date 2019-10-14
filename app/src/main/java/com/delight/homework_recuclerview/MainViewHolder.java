@@ -20,8 +20,8 @@ public class MainViewHolder extends RecyclerView.ViewHolder {
             }
         });
     }
-    public void onBind(Double d, int position){
-        textView.setText(d.toString());
+    public void onBind(String string, int position){
+        textView.setText(string);
         this.position = position;
     }
     public void setOnClickListener(onViewHolderListener listener){

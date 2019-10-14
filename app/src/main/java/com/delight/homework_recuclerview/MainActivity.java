@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
+    MainAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        MainAdapter mainAdapter = new MainAdapter(res);
-        recyclerView.setAdapter(mainAdapter);
-        mainAdapter.activity = this;
+
+        adapter = new MainAdapter(res);
+        recyclerView.setAdapter(adapter);
+        adapter.activity = this;
 
 
 

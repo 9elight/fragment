@@ -13,9 +13,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CalculatorActivity extends AppCompatActivity  {
+    double val1,val2;
+    String result,operator;
 
     ArrayList<Values> results = new ArrayList<>();
-    Values values = new Values();
+
+
 
 
 
@@ -23,6 +26,7 @@ public class CalculatorActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculator);
+
 
 
         //цифры 0-9
@@ -160,9 +164,9 @@ public class CalculatorActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 EditText output = findViewById(R.id.editText);
-                values.val1 = Double.parseDouble(output.getText().toString());
+                val1 = Double.parseDouble(output.getText().toString());
                 output.setText("");
-                values.operator = "+";
+                operator = "+";
             }
         });
         //minus button click
@@ -170,9 +174,9 @@ public class CalculatorActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 EditText output = findViewById(R.id.editText);
-                values.val1 = Double.parseDouble(output.getText().toString());
+                val1 = Double.parseDouble(output.getText().toString());
                 output.setText("");
-                values.operator = "-";
+                operator = "-";
             }
         });
         //division button click
@@ -180,9 +184,9 @@ public class CalculatorActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 EditText output = findViewById(R.id.editText);
-                values.val1 = Double.parseDouble(output.getText().toString());
+                val1 = Double.parseDouble(output.getText().toString());
                 output.setText("");
-                values.operator = "/";
+                operator = "/";
             }
         });
         //multiply button click
@@ -190,9 +194,9 @@ public class CalculatorActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 EditText output = findViewById(R.id.editText);
-                values.val1 = Double.parseDouble(output.getText().toString());
+                val1 = Double.parseDouble(output.getText().toString());
                 output.setText("");
-                values.operator = "*";
+                operator = "*";
             }
         });
         //percent button click
@@ -200,9 +204,9 @@ public class CalculatorActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 EditText output = findViewById(R.id.editText);
-                values.val1 = Double.parseDouble(output.getText().toString());
+                val1 = Double.parseDouble(output.getText().toString());
                 output.setText("");
-                values.operator = "%";
+                operator = "%";
             }
         });
 
@@ -211,44 +215,65 @@ public class CalculatorActivity extends AppCompatActivity  {
                                        @Override
                                        public void onClick(View v) {
                                            TextView output = findViewById(R.id.editText);
-                                           values.val2 = Double.parseDouble(output.getText().toString());
-
-                                           if (values.operator == "+") {
-                                               output.setText(Double.toString( values.val1 +  values.val2));
-                                               values.result = values.val1 +  values.val2;
+                                           val2 = Double.parseDouble(output.getText().toString());
+                                           Values values = new Values();
 
 
+                                           if (operator == "+") {
+                                               output.setText(Double.toString( val1 +  val2));
+                                               result = String.valueOf(val1 +  val2);
+                                               values.val1 = val1;
+                                               values.val2 = val2;
+                                               values.operator = "+";
+                                               values.result = result;
+                                               results.add(values);
 
 
 
-                                           } else if (values.operator == "-") {
-                                               output.setText(Double.toString(values.val1 -  values.val2));
-                                               values.result = values.val1 -  values.val2;
 
 
+                                           } else if (operator == "-") {
+                                               output.setText(Double.toString(val1 -  val2));
+                                               result = String.valueOf(val1 -  val2);
+                                               values.val1 = val1;
+                                               values.val2 = val2;
+                                               values.operator = "-";
+                                               values.result = result;
+                                               results.add(values);
 
-                                           } else if (values.operator == "/") {
-                                               if (values.val2 == 0) {
+
+                                           } else if (operator == "/") {
+                                               if (val2 == 0) {
                                                    output.setText("Can not divide by zero!");
 
 
                                                } else {
-                                                   output.setText(Double.toString(values.val1 /  values.val2));
+                                                   output.setText(Double.toString(val1 /  val2));
 
-                                                   values.result = values.val1 /  values.val2;
-
+                                                   result = String.valueOf(val1 /  val2);
+                                                   values.val1 = val1;
+                                                   values.val2 = val2;
+                                                   values.operator = "/";
+                                                   values.result = result;
+                                                   results.add(values);
                                                }
-                                           } else if (values.operator == "*") {
-                                               output.setText(Double.toString(values.val1 *  values.val2));
+                                           } else if (operator == "*") {
+                                               output.setText(Double.toString(val1 *  val2));
 
-                                               values.result = values.val1 *  values.val2;
-
-
-                                           } else if (values.operator == "%") {
-                                               output.setText(Double.toString((values.val1 / 100) * values.val2));
-                                               values.result = (values.val1/100) *  values.val2;
-
-
+                                               result = String.valueOf(val1 *  val2);
+                                               values.val1 = val1;
+                                               values.val2 = val2;
+                                               values.operator = "*";
+                                               values.result = result;
+                                               results.add(values);
+                                           } else if (operator == "%") {
+                                               output.setText(Double.toString((val1 / 100) * val2));
+                                               result = String.valueOf((val1/100) *  val2);
+                                               values.val1 = val1;
+                                               values.val2 = val2;
+                                               values.operator = "%";
+                                               values.result = result;
+                                               results.add(values);
 
 
 
@@ -264,8 +289,8 @@ public class CalculatorActivity extends AppCompatActivity  {
 
     }
 
-    public void openHistoryList(View v){
-        results.add(values);
+    public  void openHistoryList(View v){
+
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("Results", results);
         startActivity(intent);
