@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".CalculatorActivity"
+    android:orientation="horizontal"
+    >
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        android:background="@color/calcColor1"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+
+
+
+        <fragment
+            android:id="@+id/del_gis_fragment"
+            android:name="com.delight.homework_recuclerview.Del_His_Fragment"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText"
+            tools:layout="@layout/fragment_del__his_" />
+
+    <fragment
+        android:id="@+id/numberButtons_Fragment"
+        android:name="com.delight.homework_recuclerview.NumAndOper_Buttons_Fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        tools:layout="@layout/fragment_number__buttons_" />
+
+    <fragment
+        android:id="@+id/operation_Fragment"
+        android:name="com.delight.homework_recuclerview.Operation_Fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/numberButtons_Fragment"
+        app:layout_constraintTop_toTopOf="@id/editText"
+        tools:layout="@layout/fragment_operation_"
+
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
