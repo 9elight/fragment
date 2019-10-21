@@ -19,8 +19,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
 
 
 
+
     public MainAdapter(ArrayList<Values> data){
+
         this.data = data;
+
+
+
+
     }
 
 
@@ -38,7 +44,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
+
+
         holder.onBind(data.get(position).result,(position));
+
+
     }
 
     @Override

@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="240dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".NumAndOper_Buttons_Fragment">
+    tools:context=".Number_Buttons_Fragment">
 
     <Button
         android:id="@+id/nine"
@@ -150,63 +149,6 @@
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@+id/three"
         app:layout_constraintTop_toBottomOf="@+id/three" />
-    <Button
-        android:id="@+id/plus"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:text="+"
-        android:textSize="30sp"
-        android:background="@color/calcColor2"
-        android:textColor="@color/calcColor4"
-        app:layout_constraintLeft_toRightOf="@id/seven"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/minus"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:background="@color/calcColor2"
-        android:textColor="@color/calcColor4"
-
-        android:text="-"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="@+id/plus"
-        app:layout_constraintTop_toBottomOf="@id/plus" />
-
-    <Button
-        android:id="@+id/multiply"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:background="@color/calcColor2"
-        android:textColor="@color/calcColor4"
-
-        android:text="*"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="@+id/plus"
-        app:layout_constraintTop_toBottomOf="@id/minus" />
-
-    <Button
-        android:id="@+id/division"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:background="@color/calcColor2"
-        android:textColor="@color/calcColor4"
-
-        android:text="/"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toRightOf="@+id/three"
-        app:layout_constraintTop_toBottomOf="@id/multiply" />
-
-<!--    <Button-->
-<!--        android:id="@+id/percent"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="90dp"-->
-<!--        android:background="@color/calcColor2"-->
-<!--        android:textColor="@color/calcColor4"-->
-<!--        android:text="%"-->
-<!--        android:textSize="30sp"-->
-<!--        app:layout_constraintLeft_toLeftOf="@id/division"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/division" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
