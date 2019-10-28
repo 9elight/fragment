@@ -26,11 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         ArrayList<Values> res = (ArrayList<Values>) intent.getSerializableExtra("Results");
-
+        ArrayList<String> strings = DataStore.getInstance().getSavedStrings(getBaseContext());
 
 
 
         adapter = new MainAdapter(res);
+        adapter.setData(strings);
         recyclerView.setAdapter(adapter);
         adapter.activity = this;
 

@@ -30,5 +30,7 @@ public class History extends AppCompatActivity {
         String s4 = String.valueOf(values.get(0).result);*/
 
         textView.setText((int) values.val1 + " " + values.operator + " " +  values.val2 + " = " + values.result );
+
+        DataStore.getInstance().saveString(getBaseContext(),textView.getText().toString());
     }
 }

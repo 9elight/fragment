@@ -15,6 +15,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
 
         ArrayList<Values> data;
         MainActivity activity;
+        ArrayList<String> stringsData;
 
 
 
@@ -27,6 +28,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
 
 
 
+    }
+    public  void setData(ArrayList<String> data){
+            stringsData = data;
+            notifyDataSetChanged();
     }
 
 
@@ -46,14 +51,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
 
 
-        holder.onBind(data.get(position).result,(position));
+        holder.onBind(stringsData.get(position),(position));
 
 
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return stringsData.size();
     }
 
     @Override
@@ -61,6 +66,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> implements
         Values values = data.get(position);
         Intent intent = new Intent(activity,History.class);
         intent.putExtra("key",values);
-        activity.startActivity(intent);
+//        activity.startActivity(intent);
     }
 }

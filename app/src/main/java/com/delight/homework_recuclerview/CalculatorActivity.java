@@ -238,6 +238,7 @@ public class CalculatorActivity extends AppCompatActivity  {
                                                values.operator = "+";
                                                values.result = result;
                                                results.add(values);
+                                               saveNewElem(output.getText().toString());
 
 
 
@@ -251,6 +252,7 @@ public class CalculatorActivity extends AppCompatActivity  {
                                                values.operator = "-";
                                                values.result = result;
                                                results.add(values);
+                                               saveNewElem(output.getText().toString());
 
 
                                            } else if (operator == "/") {
@@ -267,6 +269,7 @@ public class CalculatorActivity extends AppCompatActivity  {
                                                    values.operator = "/";
                                                    values.result = result;
                                                    results.add(values);
+                                                   saveNewElem(output.getText().toString());
                                                }
                                            } else if (operator == "*") {
                                                output.setText(Double.toString(val1 *  val2));
@@ -277,6 +280,7 @@ public class CalculatorActivity extends AppCompatActivity  {
                                                values.operator = "*";
                                                values.result = result;
                                                results.add(values);
+                                               saveNewElem(output.getText().toString());
                                            } else if (operator == "%") {
                                                output.setText(Double.toString((val1 / 100) * val2));
                                                result = String.valueOf((val1/100) *  val2);
@@ -285,7 +289,7 @@ public class CalculatorActivity extends AppCompatActivity  {
                                                values.operator = "%";
                                                values.result = result;
                                                results.add(values);
-
+                                               saveNewElem(output.getText().toString());
 
 
                                            }
@@ -309,6 +313,10 @@ public class CalculatorActivity extends AppCompatActivity  {
 
 //        replaceFragment(new Del_His_Fragment());
 
+    }
+
+    public void saveNewElem(String s){
+        DataStore.getInstance().saveString(getBaseContext(),s);
     }
     public void removeFragment(Fragment fragment){
         manager = getSupportFragmentManager();
